@@ -58,6 +58,19 @@ getList();
             console.log("error in deleting item", err);
           });
       };
+    
+      const removeAll = () => {
+        axios
+        .delete(`/list/`)
+        .then((response) => {
+          console.log("deleted all items successfully");
+          getList();
+        })
+        .catch((err) => {
+          alert("Error in deleting items");
+          console.log("error in deleting items", err);
+        });
+      }
 
     return (
         <div className="App">
@@ -67,7 +80,7 @@ getList();
                     <ShoppingListForm setNewItem={setNewItem} setNewQuan={setNewQuan} setNewUnit={setNewUnit} addItem={addItem}/>
                 </section>
                 <section>
-                    <ShoppingList shoppingList={shoppingList} getList={getList} handleRemove={handleRemove}/>
+                    <ShoppingList shoppingList={shoppingList} getList={getList} handleRemove={handleRemove} removeAll={removeAll}/>
                 </section>
             </main>
         </div>
