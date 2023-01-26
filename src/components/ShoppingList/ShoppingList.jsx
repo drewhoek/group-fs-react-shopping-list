@@ -1,6 +1,6 @@
 
 
-export function ShoppingList () {
+export function ShoppingList ({shoppingList}) {
 
     return (
         <>
@@ -10,32 +10,18 @@ export function ShoppingList () {
         <button>Clear</button>
         </div>
         <div className="list">
-        <div className="list-items">
-            <p>List item Example</p>
-            <p>2</p>
-            <div className="buttons">
-            <button>Buy</button>
-            <button>Remove</button>
-            </div>
+            {shoppingList.map((item) => (
+                <div className="list-items">
+                    <p className="item-name">{item.item}</p>
+                    <p>Item Quantity: {item.quantity} {item.unit}</p>
+                    <div className="list-btns">
+                    <button>Buy</button>
+                    <button>Remove</button>
+                    </div>
+                </div>
+            )
+            )}
         </div>
-        <div className="list-items">
-            <p>List item Example</p>
-            <p>2</p>
-            <div className="buttons">
-            <button>Buy</button>
-            <button>Remove</button>
-            </div>
-        </div>
-        <div className="list-items">
-            <p>List item Example</p>
-            <p>2</p>
-            <div className="buttons">
-            <button>Buy</button>
-            <button>Remove</button>
-            </div>
-        </div>
-        </div>
-
         </>
     )
 }
