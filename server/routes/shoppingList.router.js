@@ -63,5 +63,21 @@ router.delete("/", (req, res) => {
         .catch((err) => res.sendStatus(500));
 })
 
+// Mark specific item as purchased
+router.put("/:id", (req, res) => {
+    pool
+        .query(`UPDATE shopping_list SET is_purchased = true WHERE id = $1;`, [req.params.id])
+        .then(() => res.sendStatus(200))
+        .catch((err) => res.sendStatus(500));
+})
+
+// Mark all items as not purchased
+router.put("/", (req, res) => {
+    pool
+        .query(`UPDATE shopping_list SET is_purchased = false;`)
+        .then(() => res.sendStatus(200))
+        .catch((err) => res.sendStatus(500));
+})
+
 module.exports = router;
 
