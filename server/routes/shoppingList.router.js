@@ -31,7 +31,7 @@ router.post("/", (req, res) => {
   }
 
   const queryText = `INSERT INTO shopping_list (item, quantity, unit)
-                        VALUES ($1, $2, $3, $4, $5);`;
+                        VALUES ($1, $2, $3);`;
 
   pool
     .query(queryText, [item, quantity, unit])
