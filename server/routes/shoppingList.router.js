@@ -17,6 +17,7 @@ router.get("/", (req, res) => {
             res.sendStatus(505);
         });
 });
+      
 
 router.post("/", (req, res) => {
     console.log("in post", req.body);
@@ -44,6 +45,9 @@ router.post("/", (req, res) => {
         });
 });
 
+
+
+
 router.delete("/:id", (req, res) => {
     pool
         .query(`DELETE FROM "shopping_list" WHERE "id"=$1;`, [req.params.id])
@@ -52,3 +56,4 @@ router.delete("/:id", (req, res) => {
 })
 
 module.exports = router;
+
