@@ -10,10 +10,10 @@ export function ShoppingList ({shoppingList}) {
         <button>Clear</button>
         </div>
         <div className="list">
-            {shoppingList.map((item) => (
-                <div key={item.id} className="list-items">
-                    <p className="item-name">{item.item}</p>
-                    <p>Item Quantity: {item.quantity} {item.unit}</p>
+            {shoppingList.map((val) => (
+                <div key={val.id} className="list-items">
+                    <p className="item-name">{val.item}</p>
+                    <p>Item Quantity: {val.quantity} {val.unit}</p>
                     <div className="list-btns">
                     <button>Buy</button>
                     <button>Remove</button>
