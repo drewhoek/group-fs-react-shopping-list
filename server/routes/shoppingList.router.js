@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
             res.sendStatus(505);
         });
 });
-      
+
 
 router.post("/", (req, res) => {
     console.log("in post", req.body);
@@ -47,10 +47,18 @@ router.post("/", (req, res) => {
 
 
 
-
+// Delete specific item 
 router.delete("/:id", (req, res) => {
     pool
         .query(`DELETE FROM "shopping_list" WHERE "id"=$1;`, [req.params.id])
+        .then(() => res.sendStatus(204))
+        .catch((err) => res.sendStatus(500));
+})
+
+// Delete whole list 
+router.delete("/", (req, res) => {
+    pool
+        .query(`DELETE FROM "shopping_list";`)
         .then(() => res.sendStatus(204))
         .catch((err) => res.sendStatus(500));
 })
