@@ -12,11 +12,11 @@ router.get("/", (req, res) => {
       .then((result) => {
         console.log("successful select from database");
         res.send(result.rows);
-      .catch((error) => {
-        console.log(`error ${queryText}`, error);
-        res.sendStatus(505);
-      });
-  });
+    .catch((error) => {
+      console.log(`error ${queryText}`, error);
+      res.sendStatus(505);
+    });
+});
 
   router.post("/", (req, res) => {
     console.log("in post", req.body);
@@ -43,4 +43,3 @@ router.get("/", (req, res) => {
         res.sendStatus(500);
       });
   });
-
