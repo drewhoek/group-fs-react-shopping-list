@@ -11,7 +11,7 @@ export function ShoppingList ({shoppingList}) {
         </div>
         <div className="list">
             {shoppingList.map((item) => (
-                <div className="list-items">
+                <div key={item.id} className="list-items">
                     <p className="item-name">{item.item}</p>
                     <p>Item Quantity: {item.quantity} {item.unit}</p>
                     <div className="list-btns">
