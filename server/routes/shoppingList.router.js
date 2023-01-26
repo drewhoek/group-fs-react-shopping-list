@@ -12,7 +12,6 @@ router.get("/", (req, res) => {
       .then((result) => {
         console.log("successful select from database");
         res.send(result.rows);
-      })
       .catch((error) => {
         console.log(`error ${queryText}`, error);
         res.sendStatus(505);
@@ -32,7 +31,7 @@ router.get("/", (req, res) => {
     }
   
     const queryText = `INSERT INTO shopping_list (item, quantity, unit)
-                        VALUES ($1, $2, $3, $4, $5);`;
+                        VALUES ($1, $2, $3);`;
   
     pool
       .query(queryText, [item, quantity, unit])
