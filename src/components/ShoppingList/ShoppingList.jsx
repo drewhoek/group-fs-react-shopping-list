@@ -1,6 +1,6 @@
 
 
-export function ShoppingList ({shoppingList}) {
+export function ShoppingList ({shoppingList, handleRemove}) {
 
     return (
         <>
