@@ -16,7 +16,7 @@ export function ShoppingList ({shoppingList}) {
                     <p>Item Quantity: {val.quantity} {val.unit}</p>
                     <div className="list-btns">
                     <button>Buy</button>
-                    <button>Remove</button>
+                    <button onClick={() => handleRemove(val.id)}>Remove</button>
                     </div>
                 </div>
             )
