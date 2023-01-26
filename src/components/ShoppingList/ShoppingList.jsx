@@ -12,9 +12,12 @@ export function ShoppingList ({shoppingList}) {
         <div className="list">
             {shoppingList.map((item) => (
                 <div className="list-items">
-                    <p>{item.item}</p>
+                    <p className="item-name">{item.item}</p>
+                    <p>Item Quantity: {item.quantity} {item.unit}</p>
+                    <div className="list-btns">
                     <button>Buy</button>
                     <button>Remove</button>
+                    </div>
                 </div>
             )
             )}

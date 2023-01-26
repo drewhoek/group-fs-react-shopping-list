@@ -25,14 +25,6 @@ getList();
     }
 
 
-
-
-
-
-
-
-
-
     return (
         <div className="App">
             <Header />
