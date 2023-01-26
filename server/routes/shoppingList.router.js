@@ -18,19 +18,17 @@ router.get("/", (req, res) => {
     });
 });
 
+
 router.post("/", (req, res) => {
   console.log("in post", req.body);
   const item = req.body.item;
   const quantity = req.body.quantity;
   const unit = req.body.unit;
 
-  //   if (!item || !quantity || !unit) {
-  //     const errorMessage = "error message";
-  //     console.log(errorMessage);
-  //     // res.status(400).send(errorMessage);
 
   const queryText = `INSERT INTO shopping_list (item, quantity, unit)
                         VALUES ($1, $2, $3);`;
+
 
   pool
     .query(queryText, [item, quantity, unit])
@@ -49,5 +47,29 @@ router.delete("/:id", (req, res) => {
     .then(() => res.sendStatus(204))
     .catch((err) => res.sendStatus(500));
 });
+
+// Delete whole list 
+router.delete("/", (req, res) => {
+    pool
+        .query(`DELETE FROM "shopping_list";`)
+        .then(() => res.sendStatus(204))
+        .catch((err) => res.sendStatus(500));
+})
+
+// Mark specific item as purchased
+router.put("/:id", (req, res) => {
+    pool
+        .query(`UPDATE shopping_list SET is_purchased = true WHERE id = $1;`, [req.params.id])
+        .then(() => res.sendStatus(200))
+        .catch((err) => res.sendStatus(500));
+})
+
+// Mark all items as not purchased
+router.put("/", (req, res) => {
+    pool
+        .query(`UPDATE shopping_list SET is_purchased = false;`)
+        .then(() => res.sendStatus(200))
+        .catch((err) => res.sendStatus(500));
+})
 
 module.exports = router;
