@@ -29,12 +29,12 @@ getList();
         <div className="App">
             <Header />
             <main>
-                <container className="entry-form">
+                <section className="entry-form">
                     <ShoppingListForm />
-                </container>
-                <container>
+                </section>
+                <section>
                     <ShoppingList shoppingList={shoppingList}/>
-                </container>
+                </section>
             </main>
         </div>
     );
