@@ -22,3 +22,5 @@ DELETE FROM shopping_list;
 UPDATE shopping_list SET is_purchased = false;
 
 -- It is also helpful to include some test data
+
+hello
