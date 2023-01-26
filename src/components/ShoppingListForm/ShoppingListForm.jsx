@@ -5,7 +5,7 @@ export function ShoppingListForm ({ addItem, setNewItem, newItem, newQuan, setNe
         e.preventDefault();
         addItem();
     }
-
+console.log(newItem);
     return (
         <>
         <h2>Add Item</h2>
