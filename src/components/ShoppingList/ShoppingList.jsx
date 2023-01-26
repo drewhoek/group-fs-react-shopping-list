@@ -1,13 +1,13 @@
 
 
-export function ShoppingList ({shoppingList, handleRemove}) {
+export function ShoppingList ({shoppingList, handleRemove, removeAll}) {
 
     return (
         <>
         <div className="header2">
         <h2>Shopping List</h2>
         <button>Reset</button>
-        <button>Clear</button>
+        <button onClick={() => removeAll()}>Clear</button>
         </div>
         <div className="list">
             {shoppingList.map((val) => (
