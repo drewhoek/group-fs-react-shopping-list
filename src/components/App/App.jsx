@@ -39,7 +39,7 @@ function App() {
                 <container className="entry-form">
                     <ShoppingListForm />
                 </container>
-                <container className="list">
+                <container>
                     <ShoppingList />
                 </container>
             </main>
