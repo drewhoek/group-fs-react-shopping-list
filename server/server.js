@@ -1,9 +1,8 @@
 const express = require("express");
 const app = express();
-const bodyParser = require('body-parser');
-const listRouter = require('./routes/shoppingList.router');
+const bodyParser = require("body-parser");
+const listRouter = require("./routes/shoppingList.router");
 const PORT = process.env.PORT || 5000;
-const router = require("./routes/shoppingList.router");
 
 /** ---------- MIDDLEWARE ---------- **/
 app.use(bodyParser.json()); // needed for axios requests
@@ -14,10 +13,7 @@ app.use(express.static("build"));
 // and plug them in here with `app.use()`
 app.use("/list", listRouter);
 
-app.use("/list", router);
-
 /** ---------- START SERVER ---------- **/
 app.listen(PORT, () => {
-    console.log('Listening on port: ', PORT);
+  console.log("Listening on port: ", PORT);
 });
-
