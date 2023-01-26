@@ -10,6 +10,11 @@ import './App.css';
 function App() {
 
     const [shoppingList, setShoppingList] = useState([]);
+    const [newItem, setNewItem] =useState();
+    const [newQuan, setNewQuan] =useState();
+    const [newUnit, setNewUnit] =useState();
+
+
 
     useEffect(() => {
 getList();
@@ -24,16 +29,31 @@ getList();
         })
     }
 
+    const addItem = () => {
+
+        const newObj = {
+            item: newItem,
+            quantity: newQuan,
+            unit: newUnit,
+        }
+
+        axios.post('/list/', newObj).then(response => {
+            getList();
+        }).catch(err => {
+            alert('Error in adding item', err)
+        })
+    }
+
 
     return (
         <div className="App">
             <Header />
             <main>
                 <section className="entry-form">
-                    <ShoppingListForm />
+                    <ShoppingListForm setNewItem={setNewItem} setNewQuan={setNewQuan} setNewUnit={setNewUnit} addItem={addItem}/>
                 </section>
                 <section>
-                    <ShoppingList shoppingList={shoppingList}/>
+                    <ShoppingList shoppingList={shoppingList} getList={getList}/>
                 </section>
             </main>
         </div>
