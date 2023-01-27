@@ -89,6 +89,20 @@ function App() {
       })
   }
 
+  const markAllNotPurchased = () => {
+    console.log('marking all items as not purchased');
+    axios
+    .put(`/list/`)
+    .then((response) => {
+      console.log('Successfully marked all items as not purchased')
+      getList();
+    })
+    .catch((err) => {
+      alert("Error in marking all items as not purchased");
+      console.log("Error in marking all items as not purchased", err);
+    })
+  }
+
   return (
     <div className="App">
       <Header />
@@ -111,6 +125,7 @@ function App() {
             handleRemove={handleRemove}
             removeAll={removeAll}
             markPurchased={markPurchased}
+            markAllNotPurchased={markAllNotPurchased}
           />
         </section>
       </main>
