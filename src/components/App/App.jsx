@@ -11,24 +11,29 @@ function App() {
   const [newQuan, setNewQuan] = useState("");
   const [newUnit, setNewUnit] = useState("");
   const [editMode, setEditMode] = useState(false);
+  const [currentID, setCurrentID] = useState(null);
 
   useEffect(() => {
     getList();
   }, []);
 
-  function editButton(id) {
-    setEditMode(true);
+  function runEdit(itemID) {
+    const newObj = {
+      item: newItem,
+      quantity: newQuan,
+      unit: newUnit,
+    };
+    console.log(itemID);
 
-    if (editMode) {
-      axios
-        .put(`/editlist/${id}`)
-        .then((response) => {
-          getList();
-        })
-        .catch((err) => {
-          alert("Error in updating ");
-        });
-    }
+    axios
+      .put(`/list/editlist/${itemID}`, newObj)
+      .then((response) => {
+        getList();
+      })
+      .catch((err) => {
+        alert("error updating");
+        console.log(err);
+      });
   }
 
   const getList = () => {
@@ -135,7 +140,8 @@ function App() {
             addItem={addItem}
             editMode={editMode}
             setEditMode={setEditMode}
-            editButton={editButton}
+            runEdit={runEdit}
+            currentID={currentID}
           />
         </section>
         <section>
@@ -148,7 +154,8 @@ function App() {
             markAllNotPurchased={markAllNotPurchased}
             editMode={editMode}
             setEditMode={setEditMode}
-            editButton={editButton}
+            runEdit={runEdit}
+            setCurrentID={setCurrentID}
           />
         </section>
       </main>

@@ -7,12 +7,19 @@ export function ShoppingListForm({
   newUnit,
   setNewUnit,
   editMode,
-  editButton,
+  runEdit,
+  setEditMode,
+  currentID,
 }) {
+  console.log(currentID);
   function handleSave(e) {
     e.preventDefault();
     if (editMode) {
-      editButton();
+      runEdit(currentID);
+      setEditMode(false);
+      setNewItem("");
+      setNewQuan("");
+      setNewUnit("");
     } else {
       addItem();
     }
@@ -44,7 +51,7 @@ export function ShoppingListForm({
             value={newUnit}
           />
           <button className="save-btn" type="submit">
-            Save
+            {editMode ? "Save Edit" : "Save"}
           </button>
         </form>
       </div>
