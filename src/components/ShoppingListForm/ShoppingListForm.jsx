@@ -6,15 +6,21 @@ export function ShoppingListForm({
   setNewQuan,
   newUnit,
   setNewUnit,
+  editMode,
+  editButton,
 }) {
   function handleSave(e) {
     e.preventDefault();
-    addItem();
+    if (editMode) {
+      editButton();
+    } else {
+      addItem();
+    }
   }
   return (
     <>
       <div className="entry-form">
-        <h2 className="add-h2">Add Item</h2>
+        <h2 className="add-h2">{editMode ? "Edit Item" : "Add Item"}</h2>
         <form onSubmit={handleSave}>
           <input
             type="text"
