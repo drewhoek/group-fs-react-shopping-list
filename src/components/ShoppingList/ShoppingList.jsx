@@ -4,6 +4,7 @@ export function ShoppingList({
   removeAll,
   markPurchased,
   markAllNotPurchased,
+  editButton,
 }) {
   return (
     <>
@@ -47,6 +48,7 @@ export function ShoppingList({
               <div className={val.is_purchased ? "hide-btns" : "list-btns"}>
                 <button onClick={() => markPurchased(val.id)}>Buy</button>
                 <button onClick={() => handleRemove(val.id)}>Remove</button>
+                <button onClick={() => editButton(val.id)}>Edit</button>
               </div>
             </div>
           );
