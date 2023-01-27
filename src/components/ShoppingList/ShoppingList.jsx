@@ -5,7 +5,14 @@ export function ShoppingList({
   markPurchased,
   markAllNotPurchased,
   editButton,
+  setCurrentID,
+  setEditMode,
 }) {
+  function editButton(id) {
+    setEditMode(true);
+    setCurrentID(id);
+  }
+
   return (
     <>
       <div className="header2-container">
