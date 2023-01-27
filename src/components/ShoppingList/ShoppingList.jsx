@@ -1,10 +1,3 @@
-
-export function ShoppingList({
-  shoppingList,
-  handleRemove,
-  removeAll,
-  markPurchased,
-}) {
 import { useState } from "react";
 
 export function ShoppingList({ shoppingList, handleRemove, removeAll, markPurchased, markAllNotPurchased }) {
@@ -33,7 +26,6 @@ export function ShoppingList({ shoppingList, handleRemove, removeAll, markPurcha
               </div>
             </div>
           );
-        })}
         {shoppingList.map((val) => (
           <div key={val.id} className="list-items">
             <p className="item-name">{val.item}</p>
