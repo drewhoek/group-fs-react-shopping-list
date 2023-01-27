@@ -69,7 +69,7 @@ main {
   display: flex;
   justify-content: space-evenly;
 }
-.hide-btn {
+.hide-btns {
   display: none;
 }
 
