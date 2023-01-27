@@ -24,6 +24,7 @@ export function ShoppingListForm({
       addItem();
     }
   }
+
   return (
     <>
       <div className="entry-form">
@@ -52,6 +53,12 @@ export function ShoppingListForm({
           />
           <button className="save-btn" type="submit">
             {editMode ? "Save Edit" : "Save"}
+          </button>
+          <button
+            onClick={() => setEditMode(false)}
+            className={editMode ? "list-btns" : "hide-btns"}
+          >
+            Cancel
           </button>
         </form>
       </div>
