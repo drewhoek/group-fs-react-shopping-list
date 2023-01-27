@@ -7,8 +7,10 @@ export function ShoppingList({
 }) {
   return (
     <>
-      <div className="header2">
-        <h2>Shopping List</h2>
+
+      <div className="header2-container">
+        <div className="header2">
+          <h2>Shopping List</h2>
         <button
           onClick={() => {
             if (confirm("Are you sure you want to reset the shopping list?")) {
@@ -20,6 +22,7 @@ export function ShoppingList({
         removeAll()
     }
     }}>Clear</button>
+
       </div>
       <div className="list">
         {shoppingList.map((val) => {
@@ -30,7 +33,7 @@ export function ShoppingList({
                 <span className="item-quan">{val.quantity}</span>
                 <span className="item-unit">{val.unit}</span>
               </p>
-              {val.is_purchased && <p>Purchased</p>}
+              {val.is_purchased && <p className="purchase-txt">Purchased</p>}
               <div className={val.is_purchased ? "hide-btns" : "list-btns"}>
                 <button onClick={() => markPurchased(val.id)}>Buy</button>
                 <button onClick={() => handleRemove(val.id)}>Remove</button>

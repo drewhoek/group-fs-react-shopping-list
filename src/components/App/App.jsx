@@ -63,7 +63,7 @@ function App() {
   };
 
   const removeAll = () => {
-    console.log('in removeAll');
+    console.log("in removeAll");
     axios
       .delete(`/list/`)
       .then((response) => {
@@ -77,37 +77,38 @@ function App() {
   };
 
   const markPurchased = (itemID) => {
-    console.log('marking item purchased at id:', itemID);
+    console.log("marking item purchased at id:", itemID);
     axios
       .put(`/list/${itemID}`)
       .then((response) => {
-        console.log('successfully marked item as purchased')
+        console.log("successfully marked item as purchased");
         getList();
-      }).catch((err) => {
+      })
+      .catch((err) => {
         alert("Error in marking item purchased");
         console.log("error in marking item purchased", err);
-      })
-  }
+      });
+  };
 
   const markAllNotPurchased = () => {
-    console.log('marking all items as not purchased');
+    console.log("marking all items as not purchased");
     axios
-    .put(`/list/`)
-    .then((response) => {
-      console.log('Successfully marked all items as not purchased')
-      getList();
-    })
-    .catch((err) => {
-      alert("Error in marking all items as not purchased");
-      console.log("Error in marking all items as not purchased", err);
-    })
-  }
+      .put(`/list/`)
+      .then((response) => {
+        console.log("Successfully marked all items as not purchased");
+        getList();
+      })
+      .catch((err) => {
+        alert("Error in marking all items as not purchased");
+        console.log("Error in marking all items as not purchased", err);
+      });
+  };
 
   return (
     <div className="App">
       <Header />
       <main>
-        <section className="entry-form">
+        <section>
           <ShoppingListForm
             setNewItem={setNewItem}
             newItem={newItem}
