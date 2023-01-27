@@ -19,17 +19,20 @@ export function ShoppingListForm({
           type="text"
           placeholder="Item"
           value={newItem}
+          required
           onChange={(evt) => setNewItem(evt.target.value)}
         />
         <input
           type="number"
           placeholder="Quantity"
           value={newQuan}
+          required
           onChange={(evt) => setNewQuan(evt.target.value)}
         />
         <input
           type="text"
           placeholder="Unit"
+          required
           onChange={(evt) => setNewUnit(evt.target.value)}
           value={newUnit}
         />
