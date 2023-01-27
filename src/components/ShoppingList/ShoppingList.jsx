@@ -7,12 +7,22 @@ export function ShoppingList({
 }) {
   return (
     <>
+
       <div className="header2-container">
         <div className="header2">
           <h2>Shopping List</h2>
-          <button onClick={() => markAllNotPurchased()}>Reset</button>
-          <button onClick={() => removeAll()}>Clear</button>
-        </div>
+        <button
+          onClick={() => {
+            if (confirm("Are you sure you want to reset the shopping list?")) {
+              markAllNotPurchased();
+            }
+              }}>Reset</button>
+          <button onClick={() => {
+    if (confirm("Are you sure you want to clear the shopping list?")) {
+        removeAll()
+    }
+    }}>Clear</button>
+
       </div>
       <div className="list">
         {shoppingList.map((val) => {
