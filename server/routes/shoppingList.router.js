@@ -72,4 +72,15 @@ router.put("/", (req, res) => {
     .catch((err) => res.sendStatus(500));
 })
 
+// Route for editing existing item
+router.put("/editlist/:id", (req, res) => {
+  console.log(req.body);
+  pool
+    .query(`UPDATE shopping_list SET "item" = $1, "quantity" = $2, "unit" = $3 WHERE id = $4;`, [req.body.item, req.body.quantity, req.body.unit, req.params.id])
+    .then(() => {
+      res.sendStatus(200)
+      console.log(req.params.id)
+    })
+    .catch((err) => res.sendStatus(500));
+})
 module.exports = router;
